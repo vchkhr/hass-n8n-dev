@@ -1,35 +1,28 @@
 name: "Home Assistant Add-on: n8n"
-version: 1.0.189.1.0
+version: 1.0.190.0.0
 slug: hass-n8n-dev
 description: "Host an n8n instance on your Home Assistant server (development version)"
-arch:
-- armhf
-- armv7
-- aarch64
-- amd64
-- i386
 url: https://github.com/vchkhr/hass-n8n-dev
-startup: application
-boot: auto
-icon: icon.png
-logo: logo.png
-webui: "[PROTO:protocol]://[HOST]:[PORT:5678]/"
-map:
-- ssl
-apparmor: true
+codenotary: codenotary@frenck.dev
+webui: "[PROTO:ssl]://[HOST]:[PORT:5678]"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armv7
 ports:
   5678/tcp: 5678
 ports_description:
   5678/tcp: "n8n Web Interface"
+map:
+  - ssl
 options:
-  protocol: "https"
-  base_url: "https://localhost:5678/"
-  timezone: "Europe/Berlin"
+  ssl: true
   certfile: fullchain.pem
   keyfile: privkey.pem
 schema:
-  protocol: str
-  base_url: str
-  timezone: str
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  ssl: bool
   certfile: str
   keyfile: str
+  request_size_limit: int?

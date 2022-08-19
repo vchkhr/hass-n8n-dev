@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.191.0.0] - 2022-08-19
+
+### Updated
+
+- n8n updated to the version 0.191.0.
+
 ## [1.0.190.0.0] - 2022-08-15
 
 ### Updated

@@ -1,6 +1,0 @@
-#!/command/with-contenv bashio
-
-bashio::net.wait_for 80
-bashio::log.info "Starting NGinx..."
-
-exec nginx
